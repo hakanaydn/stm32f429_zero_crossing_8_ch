@@ -1,0 +1,239 @@
+#include "dimmerTask.hpp"
+#include <touchgfx/hal/CONSOL.hpp>
+
+#include "string.h"
+#include "dimmerlib.h" 
+#include "stdbool.h"
+
+using namespace touchgfx;
+
+#define _RX_LEN 3
+#define NUM_CHANNELS 2
+
+int Dimming_Lvl[NUM_CHANNELS] = {0,0}; //(0-499) 
+int State		   [NUM_CHANNELS] = {1,1};
+
+
+extern Ts_AcDimLight_t AcDimLight[DIMMER_LAMP_COUNT];
+extern SemaphoreHandle_t SemaphoreUpdateDimmer;
+ 
+static void AcDimmerLearnTask(void* params);
+static void AcDimmerTask(void* params);
+
+char kelime[40];
+bool ZCD_Flag=false;
+
+uint32_t timenow = 0 ;
+uint32_t timenow2 = 0 ;
+uint32_t etime = 0 ;
+
+volatile bool isHandled[NUM_CHANNELS] = {0,0};
+volatile int Lvl_Counter[NUM_CHANNELS] = {120,0};
+
+int NumActiveChannels = 2;
+volatile bool zero_cross = 0;
+volatile int NumHandled = 0;
+
+bool pLampState[2]={false,false};
+
+
+uint32_t freq[4];
+
+void Zero_Crossing_Int();
+void dimTimerISR();
+
+void DIMMERTASK::DimmerBegin(){
+		xTaskCreate(AcDimmerLearnTask, "AcDimmerLearnTask",
+                configGUITASKSTKSIZE,
+                NULL,
+                configGUITASKPRIORITY,
+                NULL);
+//		xTaskCreate(AcDimmerTask, "AcDimmerTask",
+//                configGUITASKSTKSIZE,
+//                NULL,
+//                configGUITASKPRIORITY,
+//                NULL);
+		Dimmer_Init();
+	
+	  /* Create the Semaphore for synchronization between hw & softirq */
+    vSemaphoreCreateBinary(SemaphoreUpdateDimmer);	
+}
+
+
+bool change = false;
+/**
+  * @brief  Configures ....
+  * @param  None
+  * @retval None
+  */
+void AcDimmerLearnTask(void* params){
+		
+  int i = 0;
+	while(1) {
+				/* Block until the semaphore is given */
+       xSemaphoreTake(SemaphoreUpdateDimmer, portMAX_DELAY);
+				
+				for(i = 0 ; i < DIMMER_LAMP_COUNT ; i++)
+				{
+					if(AcDimLight[i].flag ==true && AcDimLight[i].Mode == ON) 
+					{
+						//AcDimLight[i].TriacTime = map(100-AcDimLight[i].Val, 0, 100, 250, 9100);
+						AcDimLight[i].TriacTime = map(100-AcDimLight[i].Val, 0, 100, 500, 1000);
+						Dimming_Lvl[0] = AcDimLight[i].TriacTime;
+						sprintf(kelime,"ID:%d - VAL:%d \r\n",AcDimLight[i].ID + 1,AcDimLight[i].TriacTime);
+						CONSOL::transmit(kelime,strlen(kelime));
+						change =true;
+						break;
+					}
+					else if(AcDimLight[i].flag ==true && AcDimLight[i].Mode == OFF){
+						//AcDimLight[i].TriacTime = 9100;
+						AcDimLight[i].TriacTime = map(0, 0, 100, 500, 1000);
+						Dimming_Lvl[0] = AcDimLight[i].TriacTime;
+						sprintf(kelime,"ID:%d - VAL:%d \r\n",AcDimLight[i].ID + 1,AcDimLight[i].TriacTime);
+						CONSOL::transmit(kelime,strlen(kelime));		
+						break;		
+					}
+				}
+		}
+}
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) 
+{
+		if(GPIO_Pin == AC_Int_Pin){
+			HAL_NVIC_DisableIRQ(EXTI15_10_IRQn);
+			Zero_Crossing_Int();
+			HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+		}
+}
+
+//void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+//{
+///* USER CODE BEGIN Callback 1 */
+//  if (htim->Instance == TIM13) {
+//			dimTimerISR();	
+//  }
+///* USER CODE END Callback 1 */
+//}
+
+void Zero_Crossing_Int()
+{
+  if(NumActiveChannels > 0)
+  {
+    NumHandled = 0;
+    
+    for(int i=0; i<NUM_CHANNELS; i++)
+    {
+      isHandled[i] = 0; 
+      if(State[i] == 1)
+      {
+				if(i == 0){
+				  HAL_GPIO_WritePin(LAMP_8_GPIO_Port, LAMP_8_Pin, GPIO_PIN_RESET);
+				}else if(i  == 1){
+				  HAL_GPIO_WritePin(LAMP_7_GPIO_Port, LAMP_8_Pin, GPIO_PIN_RESET);
+				}
+      }
+    }  
+    zero_cross = 1; 
+  }
+}
+
+void dimTimerISR()
+{
+	
+	for(int i = 0; i < NUM_CHANNELS; i++) 
+  {
+		  if(pLampState[i] == 1)
+      {
+				if(i == 0){
+				  HAL_GPIO_WritePin(LAMP_8_GPIO_Port, LAMP_8_Pin, GPIO_PIN_RESET);
+					pLampState[i] = false; 
+				}else if(i  == 1){
+				  HAL_GPIO_WritePin(LAMP_7_GPIO_Port, LAMP_7_Pin, GPIO_PIN_RESET);
+					pLampState[i] = false; 
+				} 
+			}
+	}
+	
+  if(zero_cross == 1)                     
+  {
+    for(int i = 0; i < NUM_CHANNELS; i++) 
+    {
+      if(State[i] == 1)
+      {
+        if(Lvl_Counter[i] > Dimming_Lvl[i] )       
+        { 
+					if(i == 0){
+						HAL_GPIO_WritePin(LAMP_8_GPIO_Port, LAMP_8_Pin, GPIO_PIN_SET);
+						pLampState[i] = true; 
+					}else if(i  == 1){
+						HAL_GPIO_WritePin(LAMP_7_GPIO_Port, LAMP_7_Pin, GPIO_PIN_SET);
+						pLampState[i] = true; 
+					} 
+          Lvl_Counter[i] = 0;  
+          isHandled[i] = 1; 
+          
+          NumHandled++;
+          if(NumHandled == NumActiveChannels)
+          {    
+            zero_cross = 0;     
+          }
+        } 
+        else if(isHandled[i] == 0)
+        {
+          Lvl_Counter[i]++;                     
+        }          
+     }
+   }
+  }
+}
+
+
+
+//void AcDimmerTask(void* params){
+//	
+//	while(1) {		
+//		if(ZCD_Flag){
+//				if(AcDimLight[7].Mode == OFF){
+//						HAL_GPIO_WritePin(LAMP_8_GPIO_Port, LAMP_8_Pin, GPIO_PIN_RESET);
+//						if(change) {	
+//									timenow = DWT_Get() + AcDimLight[7].TriacTime * (SystemCoreClock/1000000);
+//									change = false;
+//						}							// Off cycle
+//				}else{						
+//						if(!DWT_Compare(timenow))
+//						{
+//							HAL_GPIO_WritePin(LAMP_8_GPIO_Port, LAMP_8_Pin, GPIO_PIN_SET);    // triac firing
+//							DWT_Delay(10);     																						// triac On propogation delay
+//							HAL_GPIO_WritePin(LAMP_8_GPIO_Port, LAMP_8_Pin, GPIO_PIN_RESET);  // triac Off*/	
+//							ZCD_Flag=false;
+//							timenow = DWT_Get() + AcDimLight[7].TriacTime * (SystemCoreClock/1000000);
+
+//						}
+//				}		
+//		}
+//	}
+//}
+
+				
+//void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) 
+//{
+//		if(GPIO_Pin == AC_Int_Pin){
+//			
+//			//ZCD_Flag =true;
+//			
+//				HAL_NVIC_DisableIRQ(EXTI15_10_IRQn);
+
+//				if(AcDimLight[7].Mode == OFF){
+//						HAL_GPIO_WritePin(LAMP_8_GPIO_Port, LAMP_8_Pin, GPIO_PIN_RESET);  // triac Off
+// 				}else{
+//					DWT_Delay(AcDimLight[7].TriacTime);    	
+//					// Off cycle
+//					HAL_GPIO_WritePin(LAMP_8_GPIO_Port, LAMP_8_Pin, GPIO_PIN_SET);    // triac firing
+//					DWT_Delay(10);         																						// triac On propogation delay
+//					HAL_GPIO_WritePin(LAMP_8_GPIO_Port, LAMP_8_Pin, GPIO_PIN_RESET);  // triac Off
+//				}
+//				HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+//			
+//						
+//		}
+//}

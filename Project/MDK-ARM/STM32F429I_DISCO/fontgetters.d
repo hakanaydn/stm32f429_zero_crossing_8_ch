@@ -1,0 +1,11 @@
+.\stm32f429i_disco\fontgetters.o: ../touchgfx/generated/fonts/src/fontgetters.cpp
+.\stm32f429i_disco\fontgetters.o: ../../middlewares/st/touchgfx/touchgfx/framework/include/touchgfx/InternalFlashFont.hpp
+.\stm32f429i_disco\fontgetters.o: ../../middlewares/st/touchgfx/touchgfx/framework/include/touchgfx/ConstFont.hpp
+.\stm32f429i_disco\fontgetters.o: ../../middlewares/st/touchgfx/touchgfx/framework/include/touchgfx/Font.hpp
+.\stm32f429i_disco\fontgetters.o: ../../middlewares/st/touchgfx/touchgfx/framework/include/touchgfx/TextProvider.hpp
+.\stm32f429i_disco\fontgetters.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\stm32f429i_disco\fontgetters.o: ../../middlewares/st/touchgfx/touchgfx/framework/include/touchgfx/Unicode.hpp
+.\stm32f429i_disco\fontgetters.o: ../../middlewares/st/touchgfx/touchgfx/framework/include/touchgfx/hal/Types.hpp
+.\stm32f429i_disco\fontgetters.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\stm32f429i_disco\fontgetters.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
+.\stm32f429i_disco\fontgetters.o: ../../middlewares/st/touchgfx/touchgfx/framework/include/touchgfx/hal/Config.hpp

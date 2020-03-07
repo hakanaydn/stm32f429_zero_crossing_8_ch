@@ -1,0 +1,9 @@
+.\stm32f429i_disco\bitmapdatabase.o: ../touchgfx/generated/images/src/bitmapdatabase.cpp
+.\stm32f429i_disco\bitmapdatabase.o: ../../middlewares/st/touchgfx/touchgfx/framework/include/touchgfx/Bitmap.hpp
+.\stm32f429i_disco\bitmapdatabase.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cassert
+.\stm32f429i_disco\bitmapdatabase.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
+.\stm32f429i_disco\bitmapdatabase.o: ../../middlewares/st/touchgfx/touchgfx/framework/include/touchgfx/hal/Types.hpp
+.\stm32f429i_disco\bitmapdatabase.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\stm32f429i_disco\bitmapdatabase.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
+.\stm32f429i_disco\bitmapdatabase.o: ../../middlewares/st/touchgfx/touchgfx/framework/include/touchgfx/hal/Config.hpp
+.\stm32f429i_disco\bitmapdatabase.o: ..\TouchGFX\generated\images\include\BitmapDatabase.hpp

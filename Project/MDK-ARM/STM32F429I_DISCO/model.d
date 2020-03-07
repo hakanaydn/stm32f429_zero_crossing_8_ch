@@ -1,0 +1,11 @@
+.\stm32f429i_disco\model.o: ../touchgfx/gui/src/model/model.cpp
+.\stm32f429i_disco\model.o: ..\TouchGFX\gui\include\gui/model/Model.hpp
+.\stm32f429i_disco\model.o: ../../middlewares/st/touchgfx/touchgfx/framework/include/touchgfx/Utils.hpp
+.\stm32f429i_disco\model.o: ../../middlewares/st/touchgfx/touchgfx/framework/include/touchgfx/hal/Types.hpp
+.\stm32f429i_disco\model.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\stm32f429i_disco\model.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
+.\stm32f429i_disco\model.o: ../../middlewares/st/touchgfx/touchgfx/framework/include/touchgfx/hal/Config.hpp
+.\stm32f429i_disco\model.o: ../../middlewares/st/touchgfx/touchgfx/framework/include/touchgfx/Bitmap.hpp
+.\stm32f429i_disco\model.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\cassert
+.\stm32f429i_disco\model.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\assert.h
+.\stm32f429i_disco\model.o: ..\TouchGFX\gui\include\gui/model/ModelListener.hpp

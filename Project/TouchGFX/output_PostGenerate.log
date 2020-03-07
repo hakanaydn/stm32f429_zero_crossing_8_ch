@@ -1,0 +1,255 @@
+<File>
+  <FileName>ClickableContainer.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/gui/src/common/scrollingwheels/clickablecontainer.cpp</FilePath>
+</File>
+<File>
+  <FileName>FrontendApplication.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/gui/src/common/frontendapplication.cpp</FilePath>
+</File>
+<File>
+  <FileName>MainPresenter.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/gui/src/main_screen/mainpresenter.cpp</FilePath>
+</File>
+<File>
+  <FileName>MainView.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/gui/src/main_screen/mainview.cpp</FilePath>
+</File>
+<File>
+  <FileName>Model.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/gui/src/model/model.cpp</FilePath>
+</File>
+<File>
+  <FileName>ParticleEffect.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/gui/src/common/particleeffect.cpp</FilePath>
+</File>
+<File>
+  <FileName>ParticlesScrollingWheel.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/gui/src/common/scrollingwheels/particlesscrollingwheel.cpp</FilePath>
+</File>
+<File>
+  <FileName>ScreenDimmerPresenter.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/gui/src/screendimmer_screen/screendimmerpresenter.cpp</FilePath>
+</File>
+<File>
+  <FileName>ScreenDimmerView.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/gui/src/screendimmer_screen/screendimmerview.cpp</FilePath>
+</File>
+<File>
+  <FileName>ScrollingMenu.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/gui/src/common/scrollingwheels/scrollingmenu.cpp</FilePath>
+</File>
+<File>
+  <FileName>ScrollingWheel.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/gui/src/common/scrollingwheels/scrollingwheel.cpp</FilePath>
+</File>
+<File>
+  <FileName>SparseContainerList.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/gui/src/common/scrollingwheels/sparsecontainerlist.cpp</FilePath>
+</File>
+<File>
+  <FileName>TouchForwarder.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/gui/src/common/scrollingwheels/touchforwarder.cpp</FilePath>
+</File>
+<File>
+  <FileName>ApplicationFontProvider.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/fonts/src/applicationfontprovider.cpp</FilePath>
+</File>
+<File>
+  <FileName>background.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/images/src/background.cpp</FilePath>
+</File>
+<File>
+  <FileName>BitmapDatabase.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/images/src/bitmapdatabase.cpp</FilePath>
+</File>
+<File>
+  <FileName>blue_buttons_round_edge_small.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/images/src/__designer/blue_buttons_round_edge_small.cpp</FilePath>
+</File>
+<File>
+  <FileName>blue_buttons_round_edge_small_pressed.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/images/src/__designer/blue_buttons_round_edge_small_pressed.cpp</FilePath>
+</File>
+<File>
+  <FileName>blue_slider_vertical_small_slider3_vertical_round_back.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/images/src/__designer/blue_slider_vertical_small_slider3_vertical_round_back.cpp</FilePath>
+</File>
+<File>
+  <FileName>blue_slider_vertical_small_slider3_vertical_round_fill.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/images/src/__designer/blue_slider_vertical_small_slider3_vertical_round_fill.cpp</FilePath>
+</File>
+<File>
+  <FileName>blue_togglebars_toggle_round_large_button_off.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/images/src/__designer/blue_togglebars_toggle_round_large_button_off.cpp</FilePath>
+</File>
+<File>
+  <FileName>blue_togglebars_toggle_round_large_button_on.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/images/src/__designer/blue_togglebars_toggle_round_large_button_on.cpp</FilePath>
+</File>
+<File>
+  <FileName>Font_Asap_Regular_24_4bpp.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/fonts/src/font_asap_regular_24_4bpp.cpp</FilePath>
+</File>
+<File>
+  <FileName>Font_Asap_Regular_32_4bpp.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/fonts/src/font_asap_regular_32_4bpp.cpp</FilePath>
+</File>
+<File>
+  <FileName>FontGetters.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/fonts/src/fontgetters.cpp</FilePath>
+</File>
+<File>
+  <FileName>FrontendApplicationBase.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/gui_generated/src/common/frontendapplicationbase.cpp</FilePath>
+</File>
+<File>
+  <FileName>gotoMenu.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/images/src/gotomenu.cpp</FilePath>
+</File>
+<File>
+  <FileName>Kerning_Asap_Regular_24_4bpp.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/fonts/src/kerning_asap_regular_24_4bpp.cpp</FilePath>
+</File>
+<File>
+  <FileName>Kerning_Asap_Regular_32_4bpp.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/fonts/src/kerning_asap_regular_32_4bpp.cpp</FilePath>
+</File>
+<File>
+  <FileName>LanguageGb.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/texts/src/languagegb.cpp</FilePath>
+</File>
+<File>
+  <FileName>MainViewBase.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/gui_generated/src/main_screen/mainviewbase.cpp</FilePath>
+</File>
+<File>
+  <FileName>particle00.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/images/src/particle00.cpp</FilePath>
+</File>
+<File>
+  <FileName>particle01.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/images/src/particle01.cpp</FilePath>
+</File>
+<File>
+  <FileName>particle02.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/images/src/particle02.cpp</FilePath>
+</File>
+<File>
+  <FileName>particle03.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/images/src/particle03.cpp</FilePath>
+</File>
+<File>
+  <FileName>particle04.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/images/src/particle04.cpp</FilePath>
+</File>
+<File>
+  <FileName>particle05.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/images/src/particle05.cpp</FilePath>
+</File>
+<File>
+  <FileName>particle06.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/images/src/particle06.cpp</FilePath>
+</File>
+<File>
+  <FileName>particle07.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/images/src/particle07.cpp</FilePath>
+</File>
+<File>
+  <FileName>particle08.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/images/src/particle08.cpp</FilePath>
+</File>
+<File>
+  <FileName>particle09.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/images/src/particle09.cpp</FilePath>
+</File>
+<File>
+  <FileName>particle10.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/images/src/particle10.cpp</FilePath>
+</File>
+<File>
+  <FileName>ScreenDimmerViewBase.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/gui_generated/src/screendimmer_screen/screendimmerviewbase.cpp</FilePath>
+</File>
+<File>
+  <FileName>slider_knob_shape.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/images/src/slider_knob_shape.cpp</FilePath>
+</File>
+<File>
+  <FileName>Table_Asap_Regular_24_4bpp.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/fonts/src/table_asap_regular_24_4bpp.cpp</FilePath>
+</File>
+<File>
+  <FileName>Table_Asap_Regular_32_4bpp.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/fonts/src/table_asap_regular_32_4bpp.cpp</FilePath>
+</File>
+<File>
+  <FileName>Texts.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/texts/src/texts.cpp</FilePath>
+</File>
+<File>
+  <FileName>TGFX_shadow_logo.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/images/src/tgfx_shadow_logo.cpp</FilePath>
+</File>
+<File>
+  <FileName>TypedTextDatabase.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/texts/src/typedtextdatabase.cpp</FilePath>
+</File>
+<File>
+  <FileName>wheel_selector_background.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/images/src/wheel_selector_background.cpp</FilePath>
+</File>
+<File>
+  <FileName>wheel_selector_overlay.cpp</FileName>
+  <FileType>8</FileType>
+  <FilePath>../touchgfx/generated/images/src/wheel_selector_overlay.cpp</FilePath>
+</File>
